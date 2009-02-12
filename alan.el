@@ -1,3 +1,4 @@
+
 ;; Misc.
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
 (setq default-tab-width 2)
@@ -24,6 +25,14 @@
 (tabbar-mode)
 (setq tabbar-buffer-groups-function (lambda() (list "All")))
 
+;; Mode-Compile
+(autoload 'mode-compile "mode-compile"
+  "Command to compile current buffer file based on the major mode" t)
+(global-set-key "\C-cc" 'mode-compile)
+(autoload 'mode-compile-kill "mode-compile"
+  "Command to kill a compilation launched by `mode-compile'" t)
+(global-set-key "\C-ck" 'mode-compile-kill)
+
 ;; White Space Mode
 (require 'whitespace)
 
@@ -34,6 +43,14 @@
 ;; Rinari
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/rinari"))
 (require 'rinari)
+
+;; RSpec Mode
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/rspec-mode"))
+(require 'rspec-mode)
+
+;; Cucumber Mode
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/cucumber.el"))
+(load "cucumber-mode")
 
 ;; Snippets
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet-0.5.9"))
