@@ -1,4 +1,3 @@
-
 ;; Misc.
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
 (setq default-tab-width 2)
@@ -35,10 +34,18 @@
 
 ;; White Space Mode
 (require 'whitespace)
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+
+;; Delete Selection Mode
+(delete-selection-mode t)
 
 ;; Interactively Do Things
-(require 'ido)
-(ido-mode t)
+;;(require 'ido)
+;;(ido-mode t)
+
+;; Traverse Lisp
+(require 'traverselisp)
+(global-set-key (kbd "C-c |") 'traverse-toggle-split-window-h-v)
 
 ;; Rinari
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/rinari"))
@@ -58,6 +65,10 @@
 (yas/initialize)
 (yas/load-directory (concat dotfiles-dir "/vendor/yasnippet-0.5.9/snippets"))
 
+;; Line numbering
+(require 'linum)
+(global-linum-mode)
+
 ;; ECB
 (custom-set-variables
  '(ecb-options-version "2.32")
@@ -68,5 +79,4 @@
 (custom-set-faces)
 
 ;; Bindings
-(global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "M-s") 'save-buffer)
