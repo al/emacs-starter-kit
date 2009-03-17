@@ -59,6 +59,11 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/cucumber.el"))
 (load "cucumber-mode")
 
+;; Espresso Mode
+(autoload #'espresso-mode "espresso" "Start espresso-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
+    
 ;; Snippets
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet-0.5.9"))
 (require 'yasnippet)
